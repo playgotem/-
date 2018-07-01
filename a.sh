@@ -213,9 +213,10 @@ function install_packages(){
 function install_packages(){
     local packages=("$@")
     for i in "${packages[@]}"; do
-        (_chuser "trizen -S ${i} --needed --noconfirm --quiet --noinfo")
+        (_chuser "trizen -S ${i} --needed --noconfirm --quiet --noinfo" &> /dev/null)
     done 
 }
+
 
 function install_desktop_environment(){
     install_packages "${DE_XFCE[@]}"
